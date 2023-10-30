@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Declaro las variables globales que voy a usar.
     let saldo = 1000;
-    const PIN = "1234";
+    let pin = "1234";
     let intentos = 3;
 
     //Enlazo el html con el js usando DOM es decir los id
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    depositar.addEventListener("click", ingresarSaldo);
 
     const restarSaldo = () => {
         const retiro = parseFloat(prompt(`Ingresa la cantidad a retirar`));
@@ -57,13 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
             saldoActual();
         }
     }
-    retirar.addEventListener("click", restarSaldo);
 
     const transferirSaldo = () => {
         const monto = parseFloat(prompt(`Ingresa el monto a transferir`))
         let expresionRegular = /^(ES)\d{22}$/;
         let cuenta = prompt(`Introduce la cuenta de banco para transferir el dinero`);
-        if(expresionRegular.test(cuenta)===false){
+        if (expresionRegular.test(cuenta) === false) {
             console.log(expresionRegular.test(cuenta))
             alert(`Cuenta de banco mal introducida`);
             return;
@@ -78,42 +76,51 @@ document.addEventListener('DOMContentLoaded', () => {
             saldoActual();
         }
     }
-    transferir.addEventListener("click", transferirSaldo);
-
+    //Creo el metodo cambiar pin, donde guardo en una variable nueva el nuevo pin porque el otro es CONSTANTE Y GLOBAL y no se puede cambiar, una vez refresque vuelvo a tener la misma contraseña
     const cambiarPin = () => {
         const pinActual = prompt(`Introduce el pin actual`)
-        
-        if(pinActual!=PIN){
+
+        if (pinActual != pin) {
             alert(`Introduce correctamente el pin actual`);
             return;
         }
         console.log(pinActual)
-        
-        const pinNuevo = prompt(`Introduce un nuevo pin`);
-        
-        alert(`Tu nuevo pin es: ${pinNuevo}`)
-        console.log(pinNuevo);
+
+        pin = prompt(`Introduce un nuevo pin`);
+
+        alert(`Tu nuevo pin es: ${pin}`)
+        console.log(pin);
         //que compruebe antes el pin y luego lo cambia lo muestra.
     }
-    cambiarContrasenia.addEventListener("click", cambiarPin)
 
-    const salirPrograma = ()=>{
+
+    //Creo el metodo salirPRograma para salir del programa 
+    const salirPrograma = () => {
         window.location.replace('templates/salida.html')
     }
-    salir.addEventListener("click", salirPrograma)
 
-    const inicioSesion = () =>{
+    //Creo el metodo inicio de sesion para comprobar el Pin.
+    const inicioSesion = () => {
         let contra = prompt(`Inserta la contraseña correcta`)
-        while(intentos>1 && contra!=PIN){
+        while (intentos > 1 && contra != pin) {
             intentos--;
             alert(`Contraseña incorrecta. Te quedan ${intentos}`);
-            contra= prompt(`Inserta la contraseña correcta`)
+            contra = prompt(`Inserta la contraseña correcta`)
         }
-        if (contra===PIN){
+        if (contra === pin) {
             alert(`Contraseña correcta, selecciona la opcion que desees`);
-        }else{
+        } else {
             window.location.replace('templates/bloqueo.html');
-        }    
+        }
     }
+    //Hago un event que cuando carge la pantalla solo se de acceso al metodo Iniicio sesion.
     document.addEventListener('load', inicioSesion);
+
+    //Una vez lanzado el inicio de sesion cuando carga el programa tienes acceso a los metodos
+    depositar.addEventListener("click", ingresarSaldo);
+    retirar.addEventListener("click", restarSaldo);
+    transferir.addEventListener("click", transferirSaldo);
+    cambiarContrasenia.addEventListener("click", cambiarPin)
+    salir.addEventListener("click", salirPrograma)
+
 });
