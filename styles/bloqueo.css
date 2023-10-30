@@ -1,7 +1,12 @@
+@font-face {
+    font-family: 'Playpen';
+    src: url('../assets/fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf') format('truetype')
+}
 body {
     background-color: red !important;
     text-align: center !important;
     margin: 0, auto;
+    font-family: 'Playpen';
 }
 
 h1 {

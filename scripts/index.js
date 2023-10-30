@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pinActual = prompt(`Introduce el pin actual`)
 
         if (pinActual != pin) {
-            alert(`Introduce correctamente el pin actual`);
+            alert(`Introduce correctamente el pin actual, no se ha modificado la contraseña`);
             return;
         }
         console.log('pin:' + pin)
