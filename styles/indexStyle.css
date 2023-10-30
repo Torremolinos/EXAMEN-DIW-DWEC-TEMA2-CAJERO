@@ -1,15 +1,16 @@
 /*agregamos nuestra fuente desde local.*/
 @font-face {
-    font-family: 'Dancing'; 
-    src: url('../assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype'); 
+    font-family: 'Dancing';
+    src: url('../assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
 }
 
 
-body{
-  font-family:'Dancing';
+body {
+    font-family: 'Dancing';
 }
+
 /*Agrego en el conteiner el color.*/
-.container{
+.container {
     text-align: center;
     background: radial-gradient(circle, rgb(21, 24, 204), rgb(36, 157, 217));
     max-width: 600px !important;
@@ -17,18 +18,26 @@ body{
     margin: auto;
     padding: 5px !important;
     border-radius: 5px;
-    box-shadow: 0,0,0,2,black;
+    box-shadow: 0, 0, 0, 2, black;
 }
-button{
+
+button {
     margin: 3px !important;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     padding: 5px !important;
     border-radius: 5px !important;
     border-style: none;
-    font-family: 'Dancing'!important;
+    font-family: 'Dancing' !important;
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     background: gray;
+}
+
+span {
+    background: #5d49b4;
+    background: radial-gradient(circle, rgb(10, 10, 10), rgb(14, 54, 139));
+    color: whitesmoke;
 }
