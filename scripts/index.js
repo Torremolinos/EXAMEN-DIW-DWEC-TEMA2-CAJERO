@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const transferirSaldo = () => {
         const monto = parseFloat(prompt(`Ingresa el monto a transferir`))
         let expresionRegular = /^(ES)\d{22}$/;
-        let cuenta = parseFloat(prompt(`Introduce la cuenta de banco para transferir el dinero`));
+        let cuenta = prompt(`Introduce la cuenta de banco para transferir el dinero`);
         if(expresionRegular.test(cuenta)===false){
             console.log(expresionRegular.test(cuenta))
             alert(`Cuenta de banco mal introducida`);
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Introduce correctamente el pin actual`);
             return;
         }
+        console.log(pinActual)
         
         const pinNuevo = prompt(`Introduce un nuevo pin`);
         
@@ -95,5 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
         //que compruebe antes el pin y luego lo cambia lo muestra.
     }
     cambiarContrasenia.addEventListener("click", cambiarPin)
-    
+
+    const salirPrograma = ()=>{
+        window.location.replace('templates/salida.html')
+    }
+    salir.addEventListener("click", salirPrograma)
+
+    const inicioSesion = () =>{
+        let contra = prompt(`Inserta la contraseña correcta`)
+        while(intentos>1 && contra!=PIN){
+            intentos--;
+            alert(`Contraseña incorrecta. Te quedan ${intentos}`);
+            contra= prompt(`Inserta la contraseña correcta`)
+        }
+        if (contra===PIN){
+            alert(`Contraseña correcta, selecciona la opcion que desees`);
+        }else{
+            window.location.replace('templates/bloqueo.html');
+        }    
+    }
+    document.addEventListener('load', inicioSesion);
 });
