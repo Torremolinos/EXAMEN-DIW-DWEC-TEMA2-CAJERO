@@ -1,6 +1,6 @@
 /**
  * @Author: Adrian Iglesias Riño
- * @github: https//github.com/
+ * @github: https://github.com/Torremolinos/EXAMEN-DIW-DWEC-TEMA2-CAJERO
  */
 
 document.addEventListener('DOMContentLoaded', () => {
