@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-
     const restarSaldo = () => {
         const retiro = parseFloat(prompt(`Ingresa la cantidad a retirar`));
         if (isNaN(retiro) || retiro <= 0 || retiro > saldo) {
