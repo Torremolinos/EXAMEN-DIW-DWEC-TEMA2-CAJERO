@@ -25,7 +25,7 @@ body {
     margin: auto;
     padding: 5px !important;
     border-radius: 5px;
-    box-shadow: 0, 0, 0, 2, black;
+    box-shadow: 5px 5px 15px 5px #000000;
 }
 
 button {
