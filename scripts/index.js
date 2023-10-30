@@ -84,12 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Introduce correctamente el pin actual`);
             return;
         }
-        console.log(pinActual)
+        console.log('pinActual:'+pinActual)
 
         pin = prompt(`Introduce un nuevo pin`);
-
+        console.log(`pin: ${pin}`);
         alert(`Tu nuevo pin es: ${pin}`)
-        console.log(pin);
+        console.log(`pin:${pin}`);
         //que compruebe antes el pin y luego lo cambia lo muestra.
     }
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.replace('templates/bloqueo.html');
         }
     }
-    //Hago un event que cuando carge la pantalla solo se de acceso al metodo Iniicio sesion.
+    //Hago un event que cuando carge la pantalla solo se de acceso al metodo Inicio sesion.
     document.addEventListener('load', inicioSesion);
 
     //Una vez lanzado el inicio de sesion cuando carga el programa tienes acceso a los metodos
