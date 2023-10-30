@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const saldoActual = () => {
         spanSaldo.innerText = `${saldo.toFixed(2)}€`;
     }
-    //pongo el metodo aqui para comprobar que funciona
-    saldoActual();
 
     //metodo ingresar saldo.
 
@@ -115,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //Hago un event que cuando carge la pantalla solo se de acceso al metodo Inicio sesion.
     document.addEventListener('load', inicioSesion());
-
+    //aqui metemos el saldo para mostrarlo desde el principio despues de que carge la sesion.
+    saldoActual();
     //Una vez lanzado el inicio de sesion cuando carga el programa tienes acceso a los metodos
     depositar.addEventListener("click", ingresarSaldo);
     retirar.addEventListener("click", restarSaldo);

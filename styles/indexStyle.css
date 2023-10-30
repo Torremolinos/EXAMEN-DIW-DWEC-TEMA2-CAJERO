@@ -1,17 +1,24 @@
-/*agregamos nuestra fuente desde local.*/
+/*agregamos nuestra fuente desde local
+@con esto y luego poniendo font te metes en atajo para crear la estructura para poner la 
+fuente en local. luego dentro de url pones ../ y otro atajo mas. luego format y truetype.
+En font family puedes poner lo que quieras porque solo es el titulo pero deberia poner el titulo de lo que usas
+para ser mas descriptivo.*/
 @font-face {
     font-family: 'Dancing';
     src: url('../assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
 }
 
-
+/*!important se pone para poder usar tu estilo por encima del de bootstrap5*/
 body {
-    font-family: 'Dancing'!important;
+    font-family: 'Dancing' !important;
 }
 
 /*Agrego en el conteiner el color.*/
 .container {
     text-align: center;
+    /*el radial el atajo yo uso ra y luego ya me sale todo, luego sabiendo que es
+    circle. luego pones los colores por ejemplo blue y blue. Y si lo quieres modificar en la paleta
+    de colores.*/
     background: radial-gradient(circle, rgb(21, 24, 204), rgb(36, 157, 217));
     max-width: 600px !important;
     margin-top: 45px !important;
@@ -40,4 +47,8 @@ span {
     background: #5d49b4;
     background: radial-gradient(circle, rgb(10, 10, 10), rgb(14, 54, 139));
     color: whitesmoke;
+}
+
+p {
+    margin-top: 10px !important;
 }
