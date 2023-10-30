@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //empiezo con leer el saldo.
     const saldoActual = () => {
-        spanSaldo.innerText = `${saldo}€`;
+        spanSaldo.innerText = `${saldo.toFixed(2)}€`;
     }
     //pongo el metodo aqui para comprobar que funciona
     saldoActual();
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             saldo += ingreso;
             //con esto compruebo que los datos salen como quiero y veo que ingreso recibe el dato correctamente.
-            console.log(`Saldo: ${saldo}, Ingreso: ${ingreso}`);
-            alert(`Ingresaste : ${ingreso}`);
+            console.log(`Saldo: ${saldo}€, Ingreso: ${ingreso}€`);
+            alert(`Ingresaste : ${ingreso}€`);
             saldoActual();
         }
     };
@@ -51,18 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             saldo -= retiro;
             //con esto compruebo que los datos salen como quiero y veo que ingreso recibe el dato correctamente.
-            console.log(`Saldo: ${saldo}, Ingreso: ${retiro}`);
-            alert(`Retiraste : ${retiro}`);
+            console.log(`Saldo: ${saldo}€, Ingreso: ${retiro}€`);
+            alert(`Retiraste : ${retiro}€`);
             saldoActual();
         }
     }
 
     const transferirSaldo = () => {
         const monto = parseFloat(prompt(`Ingresa el monto a transferir`))
-        let expresionRegular = /^(ES)\d{22}$/;
+        let expresionRegular = /^(ES\d{22})$/;
         let cuenta = prompt(`Introduce la cuenta de banco para transferir el dinero`);
         if (expresionRegular.test(cuenta) === false) {
-            console.log(expresionRegular.test(cuenta))
+            console.log(expresionRegular.test(cuenta)) //aqui controlo que  salga false.
             alert(`Cuenta de banco mal introducida`);
             return;
         }
@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             saldo -= monto;
             //con esto compruebo que los datos salen como quiero y veo que ingreso recibe el dato correctamente.
-            console.log(`Saldo: ${saldo}, Ingreso: ${monto}`);
-            alert(`Retiraste : ${monto}`);
+            console.log(`Saldo: ${saldo}€, Ingreso: ${monto}€`);
+            alert(`Retiraste : ${monto}€`);
             saldoActual();
         }
     }
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Introduce correctamente el pin actual`);
             return;
         }
-        console.log('pinActual:'+pinActual)
+        console.log('pin:' + pin)
 
         pin = prompt(`Introduce un nuevo pin`);
         console.log(`pin: ${pin}`);
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     //Hago un event que cuando carge la pantalla solo se de acceso al metodo Inicio sesion.
-    document.addEventListener('load', inicioSesion);
+    document.addEventListener('load', inicioSesion());
 
     //Una vez lanzado el inicio de sesion cuando carga el programa tienes acceso a los metodos
     depositar.addEventListener("click", ingresarSaldo);
