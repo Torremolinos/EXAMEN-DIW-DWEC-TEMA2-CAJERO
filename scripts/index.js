@@ -61,7 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const transferirSaldo = () => {
         const monto = parseFloat(prompt(`Ingresa el monto a transferir`))
-        //aqui iria la expresion regular. 
+        let expresionRegular = /^(ES)\d{22}$/;
+        let cuenta = parseFloat(prompt(`Introduce la cuenta de banco para transferir el dinero`));
+        if(expresionRegular.test(cuenta)===false){
+            console.log(expresionRegular.test(cuenta))
+            alert(`Cuenta de banco mal introducida`);
+            return;
+        }
         if (isNaN(monto) || monto <= 0 || monto > saldo) {
             alert(`Datos erroneos, introduce el monto correcto`)
         } else {
@@ -72,4 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
             saldoActual();
         }
     }
+    transferir.addEventListener("click", transferirSaldo);
+
+    const cambiarPin = () => {
+        const pinActual = prompt(`Introduce el pin actual`)
+        
+        if(pinActual!=PIN){
+            alert(`Introduce correctamente el pin actual`);
+            return;
+        }
+        
+        const pinNuevo = prompt(`Introduce un nuevo pin`);
+        
+        alert(`Tu nuevo pin es: ${pinNuevo}`)
+        console.log(pinNuevo);
+        //que compruebe antes el pin y luego lo cambia lo muestra.
+    }
+    cambiarContrasenia.addEventListener("click", cambiarPin)
+    
 });
