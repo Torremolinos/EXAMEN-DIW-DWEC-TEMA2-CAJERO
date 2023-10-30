@@ -1,0 +1,13 @@
+/*agregamos nuestra fuente desde local.*/
+@font-face {
+    font-family: 'Dancing'; 
+    src: url('../assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype'); 
+}
+
+body{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+    text-align: center;
+    background: radial-gradient(circle, pink, blue);
+}
